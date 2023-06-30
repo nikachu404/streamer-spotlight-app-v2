@@ -1,0 +1,73 @@
+.streamer-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0 1rem 1rem;
+  border: 1px solid #696969;
+  border-radius: 7px;
+
+  &:hover {
+    border-color: #b2b2b2;
+  }
+
+  &__main-info {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: #a7a4a4;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f2f2f2;
+  }
+
+  &__votes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    gap: 10px;
+
+    height: 100%;
+    width: 20%;
+    font-size: 1.2rem;
+
+    border-left: 1px solid #696969;
+  }
+
+  &__downvotes,
+  &__upvotes {
+    border-radius: 10px;
+    padding: 5px;
+    z-index: 10;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ffffff19;
+    }
+
+    &--active {
+      color: #6a5acd;
+    }
+  }
+
+  &__downvote,
+  &__upvote {
+    &--active {
+      color: #6a5acd;
+    }
+  }
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}

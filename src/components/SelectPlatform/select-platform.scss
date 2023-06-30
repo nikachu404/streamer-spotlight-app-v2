@@ -1,0 +1,277 @@
+.select-platform {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  &__border {
+    border: 1px solid #e2eded;
+    border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+  }
+
+  &__select-button {
+    position: relative;
+    font-size: 16px;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 17px 25px;
+    width: 100%;
+    display: block;
+    border: 1px solid #696969;
+    outline: none;
+    resize: none;
+    font-family: Montserrat, sans-serif;
+    cursor: pointer;
+  }
+
+  &__options-view-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  &__selected-value {
+    display: flex;
+    font-size: 16px;
+    line-height: 1;
+    margin-right: 26px;
+  }
+
+  &__option i {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__option,
+  &__label {
+    color: #2d3667;
+    font-size: 16px;
+  }
+
+  &__options {
+    position: absolute;
+    left: 0;
+    top: 42px;
+    right: 0;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+
+  &__options-view-button:checked ~ &__options {
+    border: 1px solid #e2eded;
+    border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+  }
+
+  &__option {
+    position: relative;
+    line-height: 1;
+    transition: 0.3s ease all;
+    z-index: 2;
+
+    i {
+      position: absolute;
+      left: 14px;
+      padding: 0;
+      display: none;
+    }
+  }
+
+  &__options-view-button:checked ~ &__options &__option i {
+    display: block;
+    padding: 12px 0;
+  }
+
+  &__label {
+    display: none;
+    padding: 0;
+    margin-left: 27px;
+  }
+
+  &__options-view-button:checked ~ &__options &__label {
+    text-align: initial;
+    display: block;
+    padding: 12px 14px;
+  }
+
+  &__s-c {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+
+    &.select-platform__top {
+      top: 0;
+    }
+
+    &.select-platform__bottom {
+      bottom: 0;
+    }
+  }
+
+  input[type='radio'] {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__s-c:hover ~ i {
+    color: #fff;
+    opacity: 0;
+  }
+
+  &__s-c:hover {
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__s-c.select-platform__bottom:hover + i {
+    bottom: -25px;
+    animation: moveup 0.3s ease 0.1s forwards;
+  }
+
+  &__s-c.select-platform__top:hover ~ i {
+    top: -25px;
+    animation: movedown 0.3s ease 0.1s forwards;
+  }
+
+  @keyframes moveup {
+    0% {
+      bottom: -25px;
+      opacity: 0;
+    }
+    100% {
+      bottom: 15px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes movedown {
+    0% {
+      top: -25px;
+      opacity: 0;
+    }
+    100% {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  &__label {
+    transition: 0.3s ease all;
+  }
+
+  &__option input[type='radio']:checked ~ .opt-val {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &__option input[type='radio']:checked ~ i {
+    top: 0;
+    bottom: auto;
+    opacity: 1;
+    animation: unset;
+  }
+
+  &__option input[type='radio']:checked ~ i,
+  &__option input[type='radio']:checked ~ &__label {
+    color: #fff;
+  }
+
+  &__option input[type='radio']:checked ~ &__label:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__options-view-button:not(:checked)
+    ~ &__options
+    &__option
+    input[type='radio']:checked
+    ~ .opt-val {
+    top: -30px;
+  }
+
+  &__option input[type='radio']:checked ~ &__label:before {
+    background-color: #5b4cbe;
+    border-radius: 0 0 4px 4px;
+  }
+
+  &__option:nth-child(6) input[type='radio']:checked ~ .opt-val {
+    top: -231px;
+  }
+
+  &__option-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    transition: 0.3s ease all;
+    z-index: 1;
+    display: none;
+  }
+
+  &__options-view-button:checked ~ &__options &__option-bg {
+    display: block;
+  }
+
+  &__option:hover &__label {
+    color: #fff;
+  }
+
+  &__option:hover ~ &__option-bg {
+    top: 0;
+    background-color: #5b4cbe;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &__option:nth-child(1):hover ~ &__option-bg {
+    top: 0;
+    background-color: #5b4cbe;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &__option:nth-child(2):hover ~ &__option-bg {
+    top: 40px;
+    background-color: #5b4cbe;
+  }
+
+  &__option:nth-child(3):hover ~ &__option-bg {
+    top: 80px;
+    background-color: #5b4cbe;
+  }
+
+  &__option:nth-child(4):hover ~ &__option-bg {
+    top: 120px;
+    background-color: #5b4cbe;
+  }
+
+  &__option:nth-child(5):hover ~ &__option-bg {
+    top: 160px;
+    background-color: #5b4cbe;
+  }
+
+  &__option:nth-child(6):hover ~ &__option-bg {
+    top: 200px;
+    background-color: #5b4cbe;
+    border-radius: 0 0 4px 4px;
+  }
+}
