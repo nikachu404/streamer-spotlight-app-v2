@@ -1,7 +1,7 @@
 <h1 align="center">🎧Streamer Spotlight App🎧</h1>
 
 - [✨WEBSITE✨](https://nikachu404.github.io/streamer-spotlight-app-v2/)
-- [🔧BACK-END PART🔧](https://github.com/nikachu404/streamer-spotlight-app-v2)
+- [🔧BACK-END PART🔧](https://github.com/nikachu404/streamer-spotlight-back-v2)
  <h2 align="center">📋About📋</h2>
 
 This is asimple streamer spotlight application. In this application, users
