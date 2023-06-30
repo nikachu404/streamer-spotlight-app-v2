@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Streamer } from '../../types/Streamer';
 import { StreamerItem } from '../index';
 import './streamer-list.scss';
@@ -12,10 +12,6 @@ export const StreamerList: React.FC<Props> = ({
   streamers,
   fetchStreamers,
 }) => {
-  useEffect(() => {
-    console.log('StreamerList rendered');
-  }, [streamers]);
-
   return (
     <div className="streamer-list">
       {streamers.map((streamer) => (

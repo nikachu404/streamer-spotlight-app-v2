@@ -1,8 +1,13 @@
 import { client } from '../utils/httpClient';
 
-export const getStreamers = async () => {
+export const getStreamers = async (currentPage: number, pageLimit: number) => {
   try {
-    const response = await client.get('/streamers');
+    const response = await client.get('/streamers', {
+      params: {
+        currentPage,
+        pageLimit,
+      },
+    });
 
     return response.data;
   } catch (error) {
@@ -22,16 +27,12 @@ export const getStreamer = async (streamerId: string) => {
   }
 };
 
-export const createStreamer = async (
-  name: string,
-  platform: string,
-  description: string
-) => {
+export const createStreamer = async (formData: FormData) => {
   try {
-    const response = await client.post('/streamers', {
-      name,
-      platform,
-      description,
+    const response = await client.post('/streamers', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
     });
 
     return response.data;

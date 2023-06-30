@@ -77,7 +77,7 @@ export const StreamerItem: React.FC<StreamerItemProps> = ({
     <div className="streamer-item">
       <Link to={`/${streamer._id}`} className="streamer-item__main-info">
         <img
-          src="https://static-cdn.jtvnw.net/jtv_user_pictures/asmongold-profile_image-f7ddcbd0332f5d28-300x300.png"
+          src={streamer.image}
           alt={streamer.name}
           className="streamer-item__image"
         />

@@ -28,7 +28,7 @@ export const StreamerDetailsPage: React.FC = () => {
       {streamerDetails ? (
         <>
           <img
-            src="https://static-cdn.jtvnw.net/jtv_user_pictures/asmongold-profile_image-f7ddcbd0332f5d28-300x300.png"
+            src={streamerDetails.image}
             alt={streamerDetails.name}
             className="streamer-details__image"
           />
