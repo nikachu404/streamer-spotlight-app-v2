@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import { createStreamer } from '../../api/streamers';
 import { Streamer } from '../../types/Streamer';
 import { SelectPlatform, AvatarImage } from '../index';
@@ -18,15 +19,17 @@ export const StreamerSubmissionForm: React.FC<Props> = ({ addStreamer }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!name || !platform || !description || !avatarFile) {
+      toast.error('Please fill in all required fields.');
+      return;
+    }
+
     try {
       const formData = new FormData();
       formData.append('name', name);
       formData.append('platform', platform);
       formData.append('description', description);
-
-      if (avatarFile) {
-        formData.append('image', avatarFile);
-      }
+      formData.append('image', avatarFile);
 
       const newStreamer = await createStreamer(formData);
       addStreamer(newStreamer);
@@ -37,7 +40,7 @@ export const StreamerSubmissionForm: React.FC<Props> = ({ addStreamer }) => {
       setAvatarPreview(null);
       setAvatarFile(null);
     } catch (error) {
-      console.error('Failed to create streamer:', error);
+      toast.error('Failed to create streamer');
     }
   };
 
