@@ -22,8 +22,6 @@ export const Home: React.FC = () => {
       const response = await getStreamers(currentPage, 4);
       setStreamers(response.streamers);
       setTotalPages(response.totalPages);
-
-      console.log(response);
     } catch (error) {
       console.error('Failed to fetch streamers:', error);
     }

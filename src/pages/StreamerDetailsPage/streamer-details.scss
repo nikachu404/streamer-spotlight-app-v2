@@ -3,6 +3,10 @@
   padding: 40px;
   gap: 1rem;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
@@ -12,6 +16,10 @@
   &__image {
     width: 40%;
     border-radius: 10px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   &__name {
