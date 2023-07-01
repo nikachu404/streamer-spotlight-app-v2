@@ -28,7 +28,11 @@
 
   &__buttons {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 1rem;
+
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+    }
   }
 }

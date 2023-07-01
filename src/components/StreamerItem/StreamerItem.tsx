@@ -81,7 +81,7 @@ export const StreamerItem: React.FC<StreamerItemProps> = ({
           alt={streamer.name}
           className="streamer-item__image"
         />
-        <div>
+        <div className='streamer-item__info'>
           <div className="streamer-item__name">{streamer.name}</div>
           <div className="streamer-item__platform">{streamer.platform}</div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import cn from 'classnames';
 import { createStreamer } from '../../api/streamers';
 import { Streamer } from '../../types/Streamer';
 import { SelectPlatform, AvatarImage } from '../index';
@@ -15,6 +16,7 @@ export const StreamerSubmissionForm: React.FC<Props> = ({ addStreamer }) => {
   const [description, setDescription] = useState('');
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
+  const [isVisibleOnMobile, setIsVisibleOnMobile] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,38 +64,73 @@ export const StreamerSubmissionForm: React.FC<Props> = ({ addStreamer }) => {
     e.target.value = '';
   };
 
+  const toggleFormVisibility = () => {
+    setIsVisibleOnMobile((prevState) => !prevState);
+  };
+
+  const handleCloseForm = () => {
+    setIsVisibleOnMobile(false);
+  };
+
   return (
     <>
-      <form onSubmit={handleSubmit} className="streamer-submission-form">
-        <AvatarImage
-          previewUrl={avatarPreview}
-          handleImageChange={handleImageChange}
-        />
+      <div
+        className={cn('streamer-submission-form', {
+          'streamer-submission-form--visible': isVisibleOnMobile,
+        })}
+      >
+        <form
+          onSubmit={handleSubmit}
+          className="streamer-submission-form__form"
+        >
+          <div
+            className="streamer-submission-form__close-btn"
+            onClick={handleCloseForm}
+          >
+            <i className="fa-solid fa-xmark" />
+          </div>
 
-        <input
-          type="text"
-          value={name}
-          placeholder="Streamer's Name"
-          onChange={(e) => setName(e.target.value)}
-          className="streamer-submission-form__name"
-        />
+          <AvatarImage
+            previewUrl={avatarPreview}
+            handleImageChange={handleImageChange}
+          />
 
-        <SelectPlatform
-          selectedPlatform={platform}
-          setSelectedPlatform={setPlatform}
-        />
+          <input
+            type="text"
+            value={name}
+            placeholder="Streamer's Name"
+            onChange={(e) => setName(e.target.value)}
+            className="streamer-submission-form__name"
+          />
 
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="streamer-submission-form__description"
-          placeholder="Description..."
-        />
+          <SelectPlatform
+            selectedPlatform={platform}
+            setSelectedPlatform={setPlatform}
+          />
 
-        <button type="submit" className="streamer-submission-form__btn">
-          Submit
-        </button>
-      </form>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="streamer-submission-form__description"
+            placeholder="Description..."
+          />
+
+          <button type="submit" className="streamer-submission-form__btn">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <>
+        {!isVisibleOnMobile && (
+          <div
+            onClick={toggleFormVisibility}
+            className="streamer-submission-form__toggle-btn"
+          >
+            <i className="fa-solid fa-plus"></i>
+          </div>
+        )}
+      </>
     </>
   );
 };

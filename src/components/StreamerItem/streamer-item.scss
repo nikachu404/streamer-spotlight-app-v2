@@ -24,6 +24,14 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: #f2f2f2;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  &__info {
+    margin-right: 1rem;
   }
 
   &__votes {
@@ -38,6 +46,14 @@
     font-size: 1.2rem;
 
     border-left: 1px solid #696969;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+    }
   }
 
   &__downvotes,
