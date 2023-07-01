@@ -31,6 +31,7 @@ export const Home: React.FC = () => {
 
   const addStreamer = (streamer: Streamer) => {
     setStreamers((prevStreamers) => [...prevStreamers, streamer]);
+    fetchStreamers();
   };
 
   const handlePageChange = (page: number) => {

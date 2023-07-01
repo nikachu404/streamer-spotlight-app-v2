@@ -51,12 +51,15 @@ export const StreamerSubmissionForm: React.FC<Props> = ({ addStreamer }) => {
       reader.onloadend = () => {
         setAvatarPreview(reader.result as string);
       };
+
       reader.readAsDataURL(file);
       setAvatarFile(file);
     } else {
       setAvatarPreview(null);
       setAvatarFile(null);
     }
+
+    e.target.value = '';
   };
 
   return (
