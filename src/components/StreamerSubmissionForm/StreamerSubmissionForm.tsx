@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import cn from 'classnames';
 import { createStreamer } from '../../api/streamers';
 import { Streamer, FormDetails } from '../../types';
-import { SelectPlatform, AvatarImage } from '../index';
+import { SelectPlatform, AvatarImage } from '../';
 import './streamer-submission-form.scss';
 
 type Props = {
