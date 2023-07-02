@@ -10,7 +10,7 @@ upvote or downvote these streamers. Each user's submission and the current numbe
 of upvotes/downvotes should be stored on a backend and updated/displayed on the
 frontend.
 
-<h2 align="center">🧙‍♂️Technologies used🧙‍♂️</h2>
+<h2 align="center">🧙‍♂Technologies used🧙‍♂</h2>
 
  - ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
  - ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
