@@ -5,3 +5,11 @@ export const platformOptions = [
   { value: 'Kick', label: 'Kick', icon: 'fab fa-kickstarter' },
   { value: 'Rumble', label: 'Rumble', icon: 'fa-solid fa-play' },
 ];
+
+export const sortOptions = [
+  { value: 'createdAt', label: 'Created At' },
+  { value: 'upvotes', label: 'Upvotes' },
+  { value: 'downvotes', label: 'Downvotes' },
+];
+
+export const streamersPerPage = 4;
