@@ -1,16 +1,17 @@
 <h1 align="center">🎧Streamer Spotlight App🎧</h1>
 
 - [✨WEBSITE✨](https://nikachu404.github.io/streamer-spotlight-app-v2/)
+- [✨DEMO✨](https://www.loom.com/share/10870c38fc224c0da9a64298c722a85a?sid=f74a494c-86ee-44ac-b482-dad8f8e6d24e)
 - [🔧BACK-END PART🔧](https://github.com/nikachu404/streamer-spotlight-back-v2)
  <h2 align="center">📋About📋</h2>
 
-This is asimple streamer spotlight application. In this application, users
+This is a simple responsive streamer spotlight application. In this application, users
 can add their favorite streamers along with some relevant details. Other users can then
 upvote or downvote these streamers. Each user's submission and the current number
 of upvotes/downvotes should be stored on a backend and updated/displayed on the
 frontend.
 
-<h2 align="center">🧙‍♂️Technologies used🧙‍♂️</h2>
+<h2 align="center">🧙‍♂Technologies used🧙‍♂</h2>
 
  - ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
  - ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -22,6 +23,9 @@ frontend.
  - ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
  - ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
  - ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+ - ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+ - ![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
+ - ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
  - Prettier
 
 <h2 align="center">📌Instructions how to run application locally📌</h2>
