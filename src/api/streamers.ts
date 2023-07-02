@@ -1,11 +1,18 @@
 import { client } from '../utils/httpClient';
 
-export const getStreamers = async (currentPage: number, pageLimit: number) => {
+export const getStreamers = async (
+  currentPage: number,
+  pageLimit: number,
+  sortBy?: string,
+  sortOrder?: string
+) => {
   try {
     const response = await client.get('/streamers', {
       params: {
         currentPage,
         pageLimit,
+        sortBy,
+        sortOrder,
       },
     });
 
@@ -47,7 +54,7 @@ export const voteStreamer = async (streamerId: string, voteType: string) => {
     const response = await client.put(`/streamers/${streamerId}/vote`, {
       voteType,
     });
-    
+
     return response.data;
   } catch (error) {
     console.error('Failed to update vote:', error);
