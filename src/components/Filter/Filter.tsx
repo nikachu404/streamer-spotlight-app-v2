@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import cn from 'classnames';
 import { sortOptions } from '../../constants';
+import { SelectedSort } from '../../types/SelectSort';
 import './filter.scss';
 
 type Props = {
@@ -8,22 +9,28 @@ type Props = {
 };
 
 export const Filter: React.FC<Props> = memo(({ onFilterChange }) => {
-  const [selectedSortBy, setSelectedSortBy] = useState('');
-  const [selectedSortByPreview, setSelectedSortByPreview] = useState('');
-  const [selectedSortOrder, setSelectedSortOrder] = useState('');
-  const [selectedSortOrderPreview, setSelectedSortOrderPreview] = useState('');
+  const [selectedSort, setSelectedSort] = useState<SelectedSort>({
+    sortBy: '',
+    sortByPreview: '',
+    sortOrder: '',
+    sortOrderPreview: '',
+  });
   const [isSortByOpen, setSortByOpen] = useState(false);
   const [isSortOrderOpen, setSortOrderOpen] = useState(false);
 
-  const isFilterSelected = selectedSortBy !== '' && selectedSortOrder !== '';
+  const isFilterSelected =
+    selectedSort.sortBy !== '' && selectedSort.sortOrder !== '';
 
   const handleSortByChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     selectedPreview: string
   ) => {
     const sortBy = event.target.value;
-    setSelectedSortBy(sortBy);
-    setSelectedSortByPreview(selectedPreview);
+    setSelectedSort((prevSelectedSort) => ({
+      ...prevSelectedSort,
+      sortBy,
+      sortByPreview: selectedPreview,
+    }));
     toggleSortByOptions();
   };
 
@@ -32,8 +39,11 @@ export const Filter: React.FC<Props> = memo(({ onFilterChange }) => {
     selectedPreview: string
   ) => {
     const sortOrder = event.target.value;
-    setSelectedSortOrder(sortOrder);
-    setSelectedSortOrderPreview(selectedPreview);
+    setSelectedSort((prevSelectedSort) => ({
+      ...prevSelectedSort,
+      sortOrder,
+      sortOrderPreview: selectedPreview,
+    }));
     toggleSortOrderOptions();
   };
 
@@ -46,7 +56,7 @@ export const Filter: React.FC<Props> = memo(({ onFilterChange }) => {
   };
 
   const applyFilter = () => {
-    onFilterChange(selectedSortBy, selectedSortOrder);
+    onFilterChange(selectedSort.sortBy, selectedSort.sortOrder);
   };
 
   return (
@@ -62,14 +72,16 @@ export const Filter: React.FC<Props> = memo(({ onFilterChange }) => {
           <div className="filter__filter-box__select-button filter__filter-box__border">
             <div className="filter__filter-box__selected-value">
               <span style={{ opacity: 1 }}>
-                {selectedSortByPreview
-                  ? `Sort By: ${selectedSortByPreview}`
+                {selectedSort.sortByPreview
+                  ? `Sort By: ${selectedSort.sortByPreview}`
                   : 'Sort By:'}
               </span>
             </div>
           </div>
           <div
-            className={`filter__filter-box__options ${isSortByOpen ? 'open' : ''}`}
+            className={`filter__filter-box__options ${
+              isSortByOpen ? 'open' : ''
+            }`}
           >
             {sortOptions.map((option) => (
               <div key={option.value} className="filter__filter-box__option">
@@ -87,7 +99,9 @@ export const Filter: React.FC<Props> = memo(({ onFilterChange }) => {
                   value={option.value}
                   onChange={(e) => handleSortByChange(e, option.label)}
                 />
-                <span className="filter__filter-box__label">{option.label}</span>
+                <span className="filter__filter-box__label">
+                  {option.label}
+                </span>
               </div>
             ))}
             <div className="filter__filter-box__option-bg"></div>
@@ -106,8 +120,8 @@ export const Filter: React.FC<Props> = memo(({ onFilterChange }) => {
           <div className="filter__filter-box__select-button filter__filter-box__border">
             <div className="filter__filter-box__selected-value">
               <span style={{ opacity: 1 }}>
-                {selectedSortOrderPreview
-                  ? `Order: ${selectedSortOrderPreview}`
+                {selectedSort.sortOrderPreview
+                  ? `Order: ${selectedSort.sortOrderPreview}`
                   : 'Order:'}
               </span>
             </div>
