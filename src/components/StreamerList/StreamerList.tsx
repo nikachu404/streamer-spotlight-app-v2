@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Streamer } from '../../types/Streamer';
 import { StreamerItem } from '../index';
 import './streamer-list.scss';
@@ -8,7 +8,7 @@ type Props = {
   fetchStreamers: () => void;
 };
 
-export const StreamerList: React.FC<Props> = ({
+export const StreamerList: React.FC<Props> = memo(({
   streamers,
   fetchStreamers,
 }) => {
@@ -23,4 +23,4 @@ export const StreamerList: React.FC<Props> = ({
       ))}
     </div>
   );
-};
+});

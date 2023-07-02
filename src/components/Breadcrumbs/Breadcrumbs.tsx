@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './breadcrumbs.scss';
 
@@ -6,7 +6,7 @@ type Props = {
   streamerName: string;
 };
 
-export const Breadcrumbs: React.FC<Props> = ({ streamerName }) => {
+export const Breadcrumbs: React.FC<Props> = memo(({ streamerName }) => {
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -22,4 +22,4 @@ export const Breadcrumbs: React.FC<Props> = ({ streamerName }) => {
       <span>{streamerName}</span>
     </div>
   );
-};
+});

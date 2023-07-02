@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import cn from 'classnames';
 import { sortOptions } from '../../constants';
 import './filter.scss';
@@ -7,7 +7,7 @@ type Props = {
   onFilterChange: (sortBy: string, sortOrder: string) => void;
 };
 
-export const Filter: React.FC<Props> = ({ onFilterChange }) => {
+export const Filter: React.FC<Props> = memo(({ onFilterChange }) => {
   const [selectedSortBy, setSelectedSortBy] = useState('');
   const [selectedSortByPreview, setSelectedSortByPreview] = useState('');
   const [selectedSortOrder, setSelectedSortOrder] = useState('');
@@ -167,4 +167,4 @@ export const Filter: React.FC<Props> = ({ onFilterChange }) => {
       </button>
     </div>
   );
-};
+});

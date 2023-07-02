@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   StreamerSubmissionForm,
   StreamerList,
@@ -21,29 +21,37 @@ export const Home: React.FC = () => {
     fetchStreamers();
   }, [currentPage, sortBy, sortOrder]);
 
-  const fetchStreamers = async () => {
+  const fetchStreamers = useCallback(async () => {
     try {
-      const response = await getStreamers(currentPage, streamersPerPage, sortBy, sortOrder);
+      const response = await getStreamers(
+        currentPage,
+        streamersPerPage,
+        sortBy,
+        sortOrder
+      );
       setStreamers(response.streamers);
       setTotalPages(response.totalPages);
     } catch (error) {
       console.error('Failed to fetch streamers:', error);
     }
-  };
+  }, [currentPage, sortBy, sortOrder]);
 
-  const addStreamer = (streamer: Streamer) => {
+  const addStreamer = useCallback((streamer: Streamer) => {
     setStreamers((prevStreamers) => [...prevStreamers, streamer]);
     fetchStreamers();
-  };
+  }, []);
 
-  const handlePageChange = (page: number) => {
+  const handlePageChange = useCallback((page: number) => {
     setCurrentPage(page);
-  };
+  }, []);
 
-  const handleFilterChange = (sortBy: string, sortOrder: string) => {
-    setSortBy(sortBy);
-    setSortOrder(sortOrder);
-  };
+  const handleFilterChange = useCallback(
+    (sortBy: string, sortOrder: string) => {
+      setSortBy(sortBy);
+      setSortOrder(sortOrder);
+    },
+    []
+  );
 
   return (
     <div className="home">
