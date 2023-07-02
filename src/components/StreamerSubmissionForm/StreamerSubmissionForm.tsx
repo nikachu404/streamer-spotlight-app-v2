@@ -21,7 +21,7 @@ export const StreamerSubmissionForm: React.FC<Props> = ({ addStreamer }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!name || !platform || !description || !avatarFile) {
+    if (!name.trim() || !description.trim() || !platform || !avatarFile) {
       toast.error('Please fill in all required fields.');
       return;
     }
