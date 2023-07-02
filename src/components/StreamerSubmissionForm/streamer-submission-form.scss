@@ -4,7 +4,7 @@
   flex-direction: column;
   width: 30%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1064px) {
     display: none;
     position: absolute;
     top: 0;
@@ -35,7 +35,7 @@
     border: 1px solid #696969;
     border-radius: 10px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1064px) {
       background: radial-gradient(ellipse at bottom, #1b2735 0%, #05010a 100%);
       border: none;
     }
@@ -93,7 +93,7 @@
 
     cursor: pointer;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1064px) {
       display: none;
     }
   }
@@ -112,7 +112,7 @@
     border-radius: 50%;
     background-color: #5b4cbe;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1064px) {
       display: none;
     }
   }

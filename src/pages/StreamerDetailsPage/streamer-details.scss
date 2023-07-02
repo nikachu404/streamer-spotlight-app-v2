@@ -1,10 +1,16 @@
 .streamer-details {
   display: flex;
-  padding: 40px;
+  flex-direction: column;
+  padding: 2rem;
   gap: 1rem;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
+  &__container {
+    display: flex;
+    gap: 1rem;
+
+    @media (max-width: 1064px) {
+      flex-direction: column;
+    }
   }
 
   &__info {
@@ -17,7 +23,7 @@
     width: 40%;
     border-radius: 10px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1064px) {
       width: 100%;
     }
   }
