@@ -5,3 +5,5 @@ export * from './SelectPlatform/SelectPlatform';
 export * from './StreamerItem/StreamerItem';
 export * from './Pagination/Pagination';
 export * from './AvatarImage/AvatarImage';
+export * from './Breadcrumbs/Breadcrumbs';
+export * from './Filter/Filter';
