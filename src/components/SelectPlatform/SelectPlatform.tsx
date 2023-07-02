@@ -31,7 +31,7 @@ export const SelectPlatform: React.FC<Props> = ({
           checked={isOpen}
           onChange={toggleOptions}
         />
-        <div className="select-platform__select-button select-platform__border">
+        <div className="select-platform__select-button">
           <div className="select-platform__selected-value">
             <span style={{ opacity: 1 }}>
               {selectedPlatform ? selectedPlatform : 'Select a platform'}
