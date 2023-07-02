@@ -2,7 +2,7 @@ import React, { memo, useState, useCallback } from 'react';
 import { toast } from 'react-toastify';
 import cn from 'classnames';
 import { createStreamer } from '../../api/streamers';
-import { Streamer, FormData } from '../../types';
+import { Streamer, FormDetails } from '../../types';
 import { SelectPlatform, AvatarImage } from '../index';
 import './streamer-submission-form.scss';
 
@@ -12,7 +12,7 @@ type Props = {
 
 export const StreamerSubmissionForm: React.FC<Props> = memo(
   ({ addStreamer }) => {
-    const [formData, setFormData] = useState<FormData>({
+    const [formData, setFormData] = useState<FormDetails>({
       name: '',
       platform: '',
       description: '',

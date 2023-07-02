@@ -1,4 +1,4 @@
-export interface FormData {
+export interface FormDetails {
   name: string;
   platform: string;
   description: string;
