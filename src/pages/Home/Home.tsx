@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import {
   StreamerSubmissionForm,
   StreamerList,
@@ -32,7 +33,7 @@ export const Home: React.FC = () => {
       setStreamers(response.streamers);
       setTotalPages(response.totalPages);
     } catch (error) {
-      console.error('Failed to fetch streamers:', error);
+      toast.error('Failed to fetch streamers:(');
     }
   }, [currentPage, sortBy, sortOrder]);
 

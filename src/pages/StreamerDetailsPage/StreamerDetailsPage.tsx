@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Streamer } from '../../types/Streamer';
 import { getStreamer } from '../../api/streamers';
 import { Breadcrumbs } from '../../components';
@@ -8,6 +9,8 @@ import './streamer-details.scss';
 export const StreamerDetailsPage: React.FC = () => {
   const { streamerId } = useParams();
   const [streamerDetails, setStreamerDetails] = useState<Streamer | null>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchStreamerDetails();
@@ -20,7 +23,8 @@ export const StreamerDetailsPage: React.FC = () => {
         setStreamerDetails(fetchedStreamer);
       }
     } catch (error) {
-      console.error('Failed to fetch streamer details:', error);
+      toast.error('Failed to fetch streamer details:(');
+      navigate(-1);
     }
   };
 

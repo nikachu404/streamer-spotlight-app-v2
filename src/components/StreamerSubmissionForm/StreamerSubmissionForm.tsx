@@ -49,6 +49,8 @@ export const StreamerSubmissionForm: React.FC<Props> = memo(
           avatarFile: null,
           isVisibleOnMobile: formData.isVisibleOnMobile,
         });
+
+        toast.success('A new streamer has been added!👾');
       } catch (error) {
         toast.error('Failed to create streamer');
       }
